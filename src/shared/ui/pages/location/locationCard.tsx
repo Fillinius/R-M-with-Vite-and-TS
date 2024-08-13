@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import useFetch from '../../../lib/hooks/useFetch'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -17,7 +18,9 @@ const LocationCard = () => {
 
         <p className="card-text">Type - {data.type}</p>
       </div>
-      <button onClick={handleClick}>Вернуться к списку</button>
+      <Button variant="outlined" onClick={handleClick}>
+        Вернуться к списку
+      </Button>
     </>
   )
 }

@@ -1,3 +1,6 @@
+import * as React from 'react'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
 import { useCallback, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import '../../../src/index.css'
@@ -47,8 +50,14 @@ const Heroes = () => {
       {error && <p>- Ошибка получения данных</p>}
       {isLoading && <h1>Загрузка данных</h1>}
       <div className="absolute">
-        <button onClick={handleAsc}>Next</button>
-        <button onClick={handleDesc}>Previos</button>
+        <Stack spacing={2} direction="row">
+          <Button variant="outlined" onClick={handleAsc}>
+            Next
+          </Button>
+          <Button variant="outlined" onClick={handleDesc}>
+            Previos
+          </Button>
+        </Stack>
       </div>
       {data &&
         !isLoading &&

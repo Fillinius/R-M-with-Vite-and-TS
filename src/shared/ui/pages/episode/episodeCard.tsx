@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import useFetch from '../../../lib/hooks/useFetch'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -16,7 +17,9 @@ const EpisodeCard = () => {
         <p className="card-text">Air_date - {data.air_date}</p>
         <p className="card-text">Episode - {data.episode}</p>
       </div>
-      <button onClick={handleClick}>Вернуться к списку</button>
+      <Button variant="outlined" onClick={handleClick}>
+        Вернуться к списку
+      </Button>
     </>
   )
 }

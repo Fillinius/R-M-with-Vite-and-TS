@@ -2,6 +2,7 @@ import * as React from 'react'
 import TextField from '../../shared/form/TextField.tsx'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../shared/context/AuthProvider.js'
+import { Button } from '@mui/material'
 
 const INITIALSTATEREG = {
   name: '',
@@ -40,7 +41,9 @@ const Registration = () => {
     <>
       <div className="register_box">
         <h3>Registration</h3>
-        <button onClick={handleRedirect}>SignIn</button>
+        <Button variant="outlined" onClick={handleRedirect}>
+          SignIn
+        </Button>
       </div>
       <div className="register">
         <form className="register_form" onSubmit={handleSubmit}>
@@ -60,7 +63,9 @@ const Registration = () => {
             onChange={handleChange}
             id={data.password}
           />
-          <button type="submit">Регистрация нового пользователя</button>
+          <Button variant="contained" type="submit">
+            Регистрация нового пользователя
+          </Button>
         </form>
       </div>
     </>

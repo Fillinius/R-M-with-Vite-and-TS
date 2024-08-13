@@ -3,6 +3,7 @@ import TextField from '../../shared/form/TextField.tsx'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../shared/context/AuthProvider.js'
 import '../../index.css'
+import { Button } from '@mui/material'
 
 interface userLocalStorageProp {
   [key: string]: string | null
@@ -66,7 +67,9 @@ const SignIn = () => {
                 зарегистрирован.Перейдите по ссылке для регистрации или введите
                 свои пользовательские данные
               </p>
-              <button onClick={handleRedirect}>Registration</button>
+              <Button variant="outlined" onClick={handleRedirect}>
+                Registration
+              </Button>
             </div>
           ) : (
             <p>
@@ -94,7 +97,9 @@ const SignIn = () => {
             onChange={handleChange}
             id={data.password}
           />
-          <button type="submit">Вход в систему</button>
+          <Button variant="contained" type="submit">
+            Вход в систему
+          </Button>
         </form>
       </div>
     </>

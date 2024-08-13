@@ -1,3 +1,11 @@
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from '@mui/material'
 import useFetch from '../../../lib/hooks/useFetch'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -14,18 +22,34 @@ const HeroCard = () => {
       {typeof data === 'undefined' ? (
         <div>
           <p>"Ошибка загрузки данных"</p>
-          <button onClick={handleClick}>Вернуться к списку</button>
+          <Button variant="outlined" onClick={handleClick}>
+            Вернуться к списку
+          </Button>
         </div>
       ) : (
         <>
-          <div className="cardById">
-            <img src={data.image} alt={data.name + ' logo'} />
-            <h2 className="card-title">{data.name}</h2>
-            <p className="card-text">Gender - {data.gender}</p>
-            <p className="card-text">Species - {data.species}</p>
-            <p className="card-text">Status - {data.status}</p>
-          </div>
-          <button onClick={handleClick}>Вернуться к списку</button>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              component="img"
+              alt={data.name + ' logo'}
+              image={data.image}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {data.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                <p className="card-text">Gender - {data.gender}</p>
+                <p className="card-text">Species - {data.species}</p>
+                <p className="card-text">Status - {data.status}</p>
+              </Typography>
+              <CardActions>
+                <Button variant="outlined" size="small" onClick={handleClick}>
+                  Вернуться к списку
+                </Button>
+              </CardActions>
+            </CardContent>
+          </Card>
         </>
       )}
     </>
