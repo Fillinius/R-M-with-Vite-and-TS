@@ -1,6 +1,13 @@
 import { Link, useLocation } from 'react-router-dom'
+import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 
-const EpisodiesList = ({ data, lastNodeRef }) => {
+const EpisodiesList = ({
+  data,
+  lastNodeRef,
+}: {
+  data: DataFetchProp[]
+  lastNodeRef: React.RefObject<HTMLElement>
+}) => {
   const { pathname } = useLocation()
   return (
     <div className="card">
@@ -15,7 +22,7 @@ const EpisodiesList = ({ data, lastNodeRef }) => {
               >
                 <Link to={pathname + '/' + item.id} className="card-link">
                   <h2 className="card-title">{item.name}</h2>
-                  <p className="card-text">Air_data - {item.air_data}</p>
+                  <p className="card-text">Air_data - {item.air_date}</p>
                   <p className="card-text">Episode - {item.episode}</p>
                 </Link>
               </li>
@@ -25,7 +32,7 @@ const EpisodiesList = ({ data, lastNodeRef }) => {
               <li key={item.id} className="card-list--location">
                 <Link to={pathname + '/' + item.id} className="card-link">
                   <h2 className="card-title">{item.name}</h2>
-                  <p className="card-text">Air_data - {item.air_data}</p>
+                  <p className="card-text">Air_data - {item.air_date}</p>
                   <p className="card-text">Episode - {item.episode}</p>
                 </Link>
               </li>

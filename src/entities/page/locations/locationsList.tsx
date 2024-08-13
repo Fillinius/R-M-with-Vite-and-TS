@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
+import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 
-const Locationslist = ({ data, lastNodeRef }) => {
+const Locationslist = ({ data, lastNodeRef }: { data: DataFetchProp[] }) => {
   const { pathname } = useLocation()
   return (
     <div className="card">

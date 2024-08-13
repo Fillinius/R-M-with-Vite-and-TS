@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react'
 import { KEYUSER } from '../../feature/registration/SignIn'
 
-const AuthContext = createContext({} as ReactReduxContextValue<any, AnyAction>)
+const AuthContext = createContext({} as ReactReduxContextValue)
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
