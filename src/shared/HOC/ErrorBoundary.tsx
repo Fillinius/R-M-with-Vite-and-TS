@@ -8,13 +8,13 @@ interface ErrorBoundaryState {
 }
 
 class ErrorBoundary extends Component<ErrorBoundaryProps> {
-  constructor(props: ErrorBoundaryState) {
+  constructor(props: ErrorBoundaryState | any) {
     super(props)
     this.state = {
       hasError: false,
     }
   }
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: string) {
     console.log('geterror', error)
     return error
   }
@@ -25,9 +25,9 @@ class ErrorBoundary extends Component<ErrorBoundaryProps> {
   }
 
   render() {
-    if (this.state.hasError) {
-      return 'Что-то пошло не так'
-    }
+    // if (this.state.hasError) {
+    //   return 'Что-то пошло не так'
+    // }
     return this.props.children
   }
 }

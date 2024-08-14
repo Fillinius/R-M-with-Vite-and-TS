@@ -7,7 +7,7 @@ const HeroesList = ({
   lastNodeRef,
 }: {
   data: DataFetchProp[]
-  lastNodeRef: React.RefAttributes<HTMLLIElement> | undefined
+  lastNodeRef: React.RefAttributes<HTMLLIElement> | undefined | any
 }) => {
   const { pathname } = useLocation()
   return (
