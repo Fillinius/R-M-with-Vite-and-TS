@@ -15,12 +15,14 @@ export const Heroes = () => {
     pageNumber,
     endPoint
   )
+  const maxNumberPage = 42
+  const minNuberPage = 0
 
   const handleAsc = () => {
-    setPageNumber((p) => (p < 42 ? Number(p) + 2 : p))
+    setPageNumber((p) => (p < maxNumberPage ? Number(p) + 2 : p))
   }
   const handleDesc = () => {
-    setPageNumber((p) => (p > 0 ? Number(p) - 2 : p))
+    setPageNumber((p) => (p > minNuberPage ? Number(p) - 2 : p))
   }
 
   const observer = useRef<IntersectionObserver | null>(null)

@@ -1,4 +1,4 @@
-import main from '../../public/assets/main.png'
+import main from '../../../public/assets/main.png'
 
 export const HomePage = () => {
   return (
