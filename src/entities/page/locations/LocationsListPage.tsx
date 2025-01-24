@@ -2,13 +2,15 @@ import { Link } from 'react-router-dom'
 import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 import { UI_LINKS } from '../../../path/internalPaths'
 
+interface LocationslistPageProp {
+  data: DataFetchProp[]
+  lastNodeRef: React.RefObject<HTMLElement>
+}
+
 export const LocationslistPage = ({
   data,
   lastNodeRef,
-}: {
-  data: DataFetchProp[]
-  lastNodeRef: any
-}) => {
+}: LocationslistPageProp) => {
   return (
     <div className="card">
       <ul className="card-list ">

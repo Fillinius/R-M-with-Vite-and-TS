@@ -3,13 +3,12 @@ import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 import './style.css'
 import { Link } from 'react-router-dom'
 
-export const HeroesListPage = ({
-  data,
-  lastNodeRef,
-}: {
+interface HeroesListPageProp {
   data: DataFetchProp[]
-  lastNodeRef: React.RefAttributes<HTMLLIElement> | undefined | any
-}) => {
+  lastNodeRef: React.RefObject<HTMLElement>
+}
+
+export const HeroesListPage = ({ data, lastNodeRef }: HeroesListPageProp) => {
   return (
     <div className="card">
       <ul className="card-list">

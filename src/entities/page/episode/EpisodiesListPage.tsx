@@ -1,14 +1,12 @@
 import { Link } from 'react-router-dom'
 import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 import { UI_LINKS } from '../../../path/internalPaths'
-
-export const EpisodiesList = ({
-  data,
-  lastNodeRef,
-}: {
+interface EpisodiesListProps {
   data: DataFetchProp[]
-  lastNodeRef: any
-}) => {
+  lastNodeRef: React.RefObject<HTMLElement>
+}
+
+export const EpisodiesList = ({ data, lastNodeRef }: EpisodiesListProps) => {
   return (
     <div className="card">
       <ul className="card-list">
