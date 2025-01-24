@@ -26,7 +26,7 @@ const TextField: React.FC<TextFieldProps> = ({
           value={value}
           name={name}
           onChange={onChange}
-          id={name}
+          id={name + id}
         />
       </label>
     </>

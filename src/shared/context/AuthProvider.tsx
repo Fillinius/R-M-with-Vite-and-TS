@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react'
 import { KEYUSER } from '../../feature/registration/SignIn'
 
-const AuthContext = createContext({} as ReactReduxContextValue)
+const AuthContext = createContext(null)
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
@@ -19,7 +19,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     () => localStorage.getItem(KEYUSER) || null
   )
 
-  const signIn = (newUser: string | null, callback: () => void) => {
+  const signIn = (newUser: string | null | any, callback: () => void) => {
     setUser(newUser)
     localStorage.setItem(KEYUSER, newUser)
     callback()
@@ -31,7 +31,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     callback()
   }
 
-  const value: ValueProp = {
+  const value: ValueProp | any = {
     user,
     signIn,
     signOut,

@@ -14,7 +14,7 @@ const Registration = () => {
   const [data, setData] = React.useState(INITIALSTATEREG)
 
   const navigate = useNavigate()
-  const auth = useAuth()
+  const auth: any = useAuth()
   const location = useLocation()
   const from = location.state?.from || '/'
 

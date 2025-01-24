@@ -1,4 +1,4 @@
-import logo from '../../src/assets/logo.png'
+import logo from '../../public/assets/favicon.ico'
 import { Link } from 'react-router-dom'
 import { INTERNALPATH } from '../path/internalPaths.ts'
 

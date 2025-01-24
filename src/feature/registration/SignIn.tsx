@@ -18,7 +18,13 @@ export const KEYUSER = 'user'
 const SignIn = () => {
   const [data, setData] = React.useState(INITIALSTATELOGIN)
   const navigate = useNavigate()
-  const auth = useAuth()
+  const auth:
+    | {
+        user: string | null
+        signIn: (data: string, callback: () => void) => void
+        signOut: (callback: () => void) => void
+      }
+    | any = useAuth()
   const location = useLocation()
   const from = location.state?.from || '/'
 
@@ -31,10 +37,10 @@ const SignIn = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-
-    auth.signIn(JSON.stringify(data), () => {
-      navigate(from, { replace: true })
-    })
+    if (auth !== null)
+      auth.signIn(JSON.stringify(data), () => {
+        navigate(from, { replace: true })
+      })
 
     const userLocalStorage: userLocalStorageProp | null = JSON.parse(
       localStorage.getItem(KEYUSER) || 'null'
