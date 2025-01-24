@@ -3,7 +3,7 @@ import axios, { Canceler } from 'axios'
 import { BASEURL } from '../../../path/internalPaths.ts'
 import { DataFetchProp } from '../type/dataFetchProp.ts'
 
-const useSearchData = (pageNumber: number, endPoint: string) => {
+export const useSearchData = (pageNumber: number, endPoint: string) => {
   const [data, setData] = useState<DataFetchProp[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -53,5 +53,3 @@ const useSearchData = (pageNumber: number, endPoint: string) => {
     getDataId,
   }
 }
-
-export default useSearchData

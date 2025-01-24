@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 
-const EpisodiesList = ({
+export const EpisodiesList = ({
   data,
   lastNodeRef,
 }: {
@@ -43,5 +43,3 @@ const EpisodiesList = ({
     </div>
   )
 }
-
-export default EpisodiesList

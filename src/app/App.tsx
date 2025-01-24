@@ -1,27 +1,47 @@
 import { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import NavBar from '../widgets/navBar.tsx'
-import Home from '../entities/home.tsx'
-import NotFound from '../entities/notFound.tsx'
-import SignIn from '../feature/registration/SignIn.tsx'
-import Registration from '../feature/registration/Registation.tsx'
-import SignOut from '../feature/registration/SignOut.tsx'
-import AuthProvider from '../shared/context/AuthProvider.js'
-import PrivetRoute from '../shared/context/PrivetRoute.js'
-import NavLayout from '../shared/layout/NavLayout.js'
+import { NavBar } from '../widgets/navBar.tsx'
+import { Home } from '../entities/home.tsx'
+import { NotFound } from '../entities/notFound.tsx'
+import { SignIn } from '../feature/registration/SignIn.tsx'
+import { Registration } from '../feature/registration/Registation.tsx'
+import { SignOut } from '../feature/registration/SignOut.tsx'
+import { AuthProvider } from '../shared/context/AuthProvider.js'
+import { PrivetRoute } from '../shared/context/PrivetRoute.js'
+import { NavLayout } from '../shared/layout/NavLayout.js'
 
-const Heroes = lazy(() => import('../entities/ui/heroes.tsx'))
-const Locations = lazy(() => import('../entities/ui/locations'))
-const Episodies = lazy(() => import('../entities/ui/episodies'))
-const HeroCard = lazy(() => import('../shared/ui/pages/heroes/heroCard.tsx'))
-const EpisodeCard = lazy(
-  () => import('../shared/ui/pages/episode/episodeCard.tsx')
+const Heroes = lazy(() =>
+  import('../entities/ui/heroes.tsx').then((module) => ({
+    default: module.Heroes,
+  }))
 )
-const LocationCard = lazy(
-  () => import('../shared/ui/pages/location/locationCard.tsx')
+const Locations = lazy(() =>
+  import('../entities/ui/locations').then((module) => ({
+    default: module.Locations,
+  }))
+)
+const Episodies = lazy(() =>
+  import('../entities/ui/episodies').then((module) => ({
+    default: module.Episodies,
+  }))
+)
+const HeroCard = lazy(() =>
+  import('../shared/ui/pages/heroes/heroCard.tsx').then((module) => ({
+    default: module.HeroCard,
+  }))
+)
+const EpisodeCard = lazy(() =>
+  import('../shared/ui/pages/episode/episodeCard.tsx').then((module) => ({
+    default: module.EpisodeCard,
+  }))
+)
+const LocationCard = lazy(() =>
+  import('../shared/ui/pages/location/locationCard.tsx').then((module) => ({
+    default: module.LocationCard,
+  }))
 )
 
-function App() {
+export function App() {
   return (
     <>
       <div className="container">
@@ -60,5 +80,3 @@ function App() {
     </>
   )
 }
-
-export default App

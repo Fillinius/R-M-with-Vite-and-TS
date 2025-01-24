@@ -1,9 +1,9 @@
 import { useCallback, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import Locationslist from '../../entities/page/locations/locationsList'
+import { Locationslist } from '../../entities/page/locations/locationsList'
 import useSearchData from '../../shared/lib/hooks//useSearchData'
 
-const Locations = () => {
+export const Locations = () => {
   const { pathname } = useLocation()
   const endPoint = pathname
 
@@ -48,5 +48,3 @@ const Locations = () => {
     </>
   )
 }
-
-export default Locations

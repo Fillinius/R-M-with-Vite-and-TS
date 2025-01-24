@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 
-const Locationslist = ({
+export const Locationslist = ({
   data,
   lastNodeRef,
 }: {
@@ -45,5 +45,3 @@ const Locationslist = ({
     </div>
   )
 }
-
-export default Locationslist

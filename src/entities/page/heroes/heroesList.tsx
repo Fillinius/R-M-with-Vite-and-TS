@@ -2,7 +2,7 @@ import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 import './style.css'
 import { Link, useLocation } from 'react-router-dom'
 
-const HeroesList = ({
+export const HeroesList = ({
   data,
   lastNodeRef,
 }: {
@@ -43,10 +43,4 @@ const HeroesList = ({
       </ul>
     </div>
   )
-}
-
-export default HeroesList
-
-{
-  /* <Link to={pathname + '/' + item.id}  */
 }

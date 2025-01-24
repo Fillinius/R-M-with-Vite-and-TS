@@ -3,10 +3,10 @@ import Button from '@mui/material/Button'
 import { useCallback, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import '../../../src/index.css'
-import HeroesList from '../../entities/page/heroes/heroesList'
+import { HeroesList } from '../../entities/page/heroes/heroesList'
 import useSearchData from '../../shared/lib/hooks/useSearchData'
 
-const Heroes = () => {
+export const Heroes = () => {
   const { pathname } = useLocation()
   const endPoint = pathname
 
@@ -69,5 +69,3 @@ const Heroes = () => {
     </>
   )
 }
-
-export default Heroes

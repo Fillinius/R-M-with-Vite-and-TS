@@ -1,6 +1,6 @@
 import main from '../../public/assets/main.png'
 
-const Home = () => {
+export const Home = () => {
   return (
     <main className="main">
       <div>
@@ -10,5 +10,3 @@ const Home = () => {
     </main>
   )
 }
-
-export default Home

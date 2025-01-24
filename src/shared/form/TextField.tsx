@@ -9,7 +9,7 @@ type TextFieldProps = {
   id: string
 }
 
-const TextField: React.FC<TextFieldProps> = ({
+export const TextField: React.FC<TextFieldProps> = ({
   name,
   value,
   type,
@@ -32,5 +32,3 @@ const TextField: React.FC<TextFieldProps> = ({
     </>
   )
 }
-
-export default TextField

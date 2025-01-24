@@ -2,7 +2,7 @@ import logo from '../../public/assets/favicon.ico'
 import { Link } from 'react-router-dom'
 import { INTERNALPATH } from '../path/internalPaths.ts'
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
     <header>
       <nav className="header">
@@ -41,5 +41,3 @@ const NavBar = () => {
     </header>
   )
 }
-
-export default NavBar

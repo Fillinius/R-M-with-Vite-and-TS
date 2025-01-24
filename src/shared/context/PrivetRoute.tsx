@@ -1,7 +1,7 @@
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from './AuthProvider'
 
-const PrivetRoute = ({ children }: { children: React.ReactNode }) => {
+export const PrivetRoute = ({ children }: { children: React.ReactNode }) => {
   const auth: any = useAuth()
   const location = useLocation()
   if (auth.user === null) {
@@ -15,5 +15,3 @@ const PrivetRoute = ({ children }: { children: React.ReactNode }) => {
   }
   return children
 }
-
-export default PrivetRoute
