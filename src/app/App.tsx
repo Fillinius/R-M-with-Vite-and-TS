@@ -1,8 +1,8 @@
 import { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { NavBar } from '../widgets/navBar.tsx'
-import { Home } from '../entities/home.tsx'
-import { NotFound } from '../entities/notFound.tsx'
+import { HomePage } from '../entities/page/HomePage.tsx'
+import { NotFoundPage } from '../entities/page/NotFoundPage.tsx'
 import { SignIn } from '../feature/registration/SignIn.tsx'
 import { Registration } from '../feature/registration/Registation.tsx'
 import { SignOut } from '../feature/registration/SignOut.tsx'
@@ -48,7 +48,7 @@ export function App() {
         <NavBar />
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<HomePage />} />
             <Route
               element={
                 <PrivetRoute>
@@ -73,7 +73,7 @@ export function App() {
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/signIn/registration" element={<Registration />} />
             <Route path="/signOut" element={<SignOut />} />
-            <Route path="*" element={<NotFound />} />.
+            <Route path="*" element={<NotFoundPage />} />.
           </Routes>
         </AuthProvider>
       </div>

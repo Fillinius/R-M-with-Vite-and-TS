@@ -2,7 +2,7 @@ import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 import './style.css'
 import { Link, useLocation } from 'react-router-dom'
 
-export const HeroesList = ({
+export const HeroesListPage = ({
   data,
   lastNodeRef,
 }: {

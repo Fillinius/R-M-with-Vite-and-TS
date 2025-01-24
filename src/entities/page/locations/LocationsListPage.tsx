@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
 
-export const Locationslist = ({
+export const LocationslistPage = ({
   data,
   lastNodeRef,
 }: {

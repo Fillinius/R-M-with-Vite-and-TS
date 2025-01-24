@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { EpisodiesList } from '../../entities/page/episode/episodiesList'
-import useSearchData from '../../shared/lib/hooks/useSearchData'
+import { useSearchData } from '../../shared/lib/hooks/useSearchData'
+import { EpisodiesList } from '../page/episode/EpisodiesListPage'
 
 export const Episodies = () => {
   const { pathname } = useLocation()

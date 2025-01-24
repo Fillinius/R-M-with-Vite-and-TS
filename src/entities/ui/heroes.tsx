@@ -3,8 +3,8 @@ import Button from '@mui/material/Button'
 import { useCallback, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import '../../../src/index.css'
-import { HeroesList } from '../../entities/page/heroes/heroesList'
-import useSearchData from '../../shared/lib/hooks/useSearchData'
+import { HeroesListPage } from '../page/heroes/HeroesListPage'
+import { useSearchData } from '../../shared/lib/hooks/useSearchData'
 
 export const Heroes = () => {
   const { pathname } = useLocation()
@@ -64,7 +64,7 @@ export const Heroes = () => {
         (data.length === 0 ? (
           'Список пуст'
         ) : (
-          <HeroesList data={data} lastNodeRef={lastNodeRef} />
+          <HeroesListPage data={data} lastNodeRef={lastNodeRef} />
         ))}
     </>
   )

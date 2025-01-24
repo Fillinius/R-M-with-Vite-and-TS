@@ -1,6 +1,6 @@
 import main from '../../public/assets/main.png'
 
-export const Home = () => {
+export const HomePage = () => {
   return (
     <main className="main">
       <div>
