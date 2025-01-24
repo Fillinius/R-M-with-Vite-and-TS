@@ -17,7 +17,7 @@ const INITIALDATA = {
   url: '',
 }
 
-const useFetch = (QUERY: string) => {
+export const useFetch = (QUERY: string) => {
   const [data, setData] = useState<DataFetchProp>(INITIALDATA)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<boolean | null | unknown>(null)
@@ -56,5 +56,3 @@ const useFetch = (QUERY: string) => {
     error,
   }
 }
-
-export default useFetch

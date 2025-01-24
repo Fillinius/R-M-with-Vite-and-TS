@@ -6,10 +6,10 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material'
-import useFetch from '../../../lib/hooks/useFetch'
+import { useFetch } from '../../../lib/hooks/useFetch'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-const HeroCard = () => {
+export const HeroCard = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { data } = useFetch(pathname)
@@ -55,5 +55,3 @@ const HeroCard = () => {
     </>
   )
 }
-
-export default HeroCard

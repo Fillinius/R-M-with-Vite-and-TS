@@ -1,5 +1,5 @@
 import * as React from 'react'
-import TextField from '../../shared/form/TextField.tsx'
+import { TextField } from '../../shared/form/TextField.tsx'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../shared/context/AuthProvider.js'
 import { Button } from '@mui/material'
@@ -10,7 +10,7 @@ const INITIALSTATEREG = {
   id: '',
 }
 
-const Registration = () => {
+export const Registration = () => {
   const [data, setData] = React.useState(INITIALSTATEREG)
 
   const navigate = useNavigate()
@@ -71,5 +71,3 @@ const Registration = () => {
     </>
   )
 }
-
-export default Registration

@@ -14,7 +14,7 @@ interface ValueProp {
   signOut: (callback: () => void) => void
 }
 
-const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<string | null>(
     () => localStorage.getItem(KEYUSER) || null
   )
@@ -39,5 +39,3 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
-
-export default AuthProvider

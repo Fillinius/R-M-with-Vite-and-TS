@@ -1,8 +1,8 @@
 import { Button } from '@mui/material'
-import useFetch from '../../../lib/hooks/useFetch'
+import { useFetch } from '../../../lib/hooks/useFetch'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-const EpisodeCard = () => {
+export const EpisodeCard = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { data } = useFetch(pathname)
@@ -23,5 +23,3 @@ const EpisodeCard = () => {
     </>
   )
 }
-
-export default EpisodeCard

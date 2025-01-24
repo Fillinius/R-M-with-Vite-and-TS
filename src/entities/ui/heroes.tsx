@@ -3,10 +3,10 @@ import Button from '@mui/material/Button'
 import { useCallback, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import '../../../src/index.css'
-import HeroesList from '../../entities/page/heroes/heroesList'
-import useSearchData from '../../shared/lib/hooks/useSearchData'
+import { HeroesListPage } from '../page/heroes/HeroesListPage'
+import { useSearchData } from '../../shared/lib/hooks/useSearchData'
 
-const Heroes = () => {
+export const Heroes = () => {
   const { pathname } = useLocation()
   const endPoint = pathname
 
@@ -15,12 +15,14 @@ const Heroes = () => {
     pageNumber,
     endPoint
   )
+  const maxNumberPage = 42
+  const minNuberPage = 0
 
   const handleAsc = () => {
-    setPageNumber((p) => (p < 42 ? Number(p) + 2 : p))
+    setPageNumber((p) => (p < maxNumberPage ? Number(p) + 2 : p))
   }
   const handleDesc = () => {
-    setPageNumber((p) => (p > 0 ? Number(p) - 2 : p))
+    setPageNumber((p) => (p > minNuberPage ? Number(p) - 2 : p))
   }
 
   const observer = useRef<IntersectionObserver | null>(null)
@@ -64,10 +66,8 @@ const Heroes = () => {
         (data.length === 0 ? (
           'Список пуст'
         ) : (
-          <HeroesList data={data} lastNodeRef={lastNodeRef} />
+          <HeroesListPage data={data} lastNodeRef={lastNodeRef} />
         ))}
     </>
   )
 }
-
-export default Heroes

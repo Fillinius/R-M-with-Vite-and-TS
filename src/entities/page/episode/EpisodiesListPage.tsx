@@ -1,14 +1,14 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { DataFetchProp } from '../../../shared/lib/type/dataFetchProp'
+import { UI_LINKS } from '../../../path/internalPaths'
 
-const EpisodiesList = ({
+export const EpisodiesList = ({
   data,
   lastNodeRef,
 }: {
   data: DataFetchProp[]
   lastNodeRef: any
 }) => {
-  const { pathname } = useLocation()
   return (
     <div className="card">
       <ul className="card-list">
@@ -20,7 +20,10 @@ const EpisodiesList = ({
                 ref={lastNodeRef}
                 className="card-list--location"
               >
-                <Link to={pathname + '/' + item.id} className="card-link">
+                <Link
+                  to={UI_LINKS.episodeDetail(item.id)}
+                  className="card-link"
+                >
                   <h2 className="card-title">{item.name}</h2>
                   <p className="card-text">Air_data - {item.air_date}</p>
                   <p className="card-text">Episode - {item.episode}</p>
@@ -30,7 +33,10 @@ const EpisodiesList = ({
           } else {
             return (
               <li key={item.id} className="card-list--location">
-                <Link to={pathname + '/' + item.id} className="card-link">
+                <Link
+                  to={UI_LINKS.episodeDetail(item.id)}
+                  className="card-link"
+                >
                   <h2 className="card-title">{item.name}</h2>
                   <p className="card-text">Air_data - {item.air_date}</p>
                   <p className="card-text">Episode - {item.episode}</p>
@@ -43,5 +49,3 @@ const EpisodiesList = ({
     </div>
   )
 }
-
-export default EpisodiesList

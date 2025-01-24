@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../shared/context/AuthProvider'
 
-const SignOut = () => {
+export const SignOut = () => {
   const auth: any | { singOut: () => void } = useAuth()
 
   const navigate = useNavigate()
@@ -12,5 +12,3 @@ const SignOut = () => {
   }, [auth, navigate])
   return auth.signOut(() => {})
 }
-
-export default SignOut

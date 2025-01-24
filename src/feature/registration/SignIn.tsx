@@ -1,5 +1,5 @@
 import * as React from 'react'
-import TextField from '../../shared/form/TextField.tsx'
+import { TextField } from '../../shared/form/TextField.tsx'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../shared/context/AuthProvider.js'
 import '../../index.css'
@@ -15,7 +15,7 @@ const INITIALSTATELOGIN = {
 }
 export const KEYUSER = 'user'
 
-const SignIn = () => {
+export const SignIn = () => {
   const [data, setData] = React.useState(INITIALSTATELOGIN)
   const navigate = useNavigate()
   const auth:
@@ -111,5 +111,3 @@ const SignIn = () => {
     </>
   )
 }
-
-export default SignIn
