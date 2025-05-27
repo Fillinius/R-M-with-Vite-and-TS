@@ -1,7 +1,8 @@
-import { useCallback, useRef, useState } from 'react'
+import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Locationslist from '../../entities/page/locations/locationsList'
 import useSearchData from '../../shared/lib/hooks//useSearchData'
+import { useLastNode } from '../../shared/lib/hooks/useLastNode'
 
 const Locations = () => {
   const { pathname } = useLocation()
@@ -13,26 +14,7 @@ const Locations = () => {
     endPoint
   )
 
-  const observer = useRef<IntersectionObserver | null>(null)
-  const lastNodeRef = useCallback(
-    (node: HTMLElement | null) => {
-      // console.log(node);
-      if (isLoading) return
-      if (observer.current) {
-        observer.current.disconnect()
-      }
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setPageNumber((prev) => prev + 1)
-          console.log('visible')
-        }
-      })
-      if (node) {
-        observer.current.observe(node)
-      }
-    },
-    [isLoading, hasMore]
-  )
+  const lastNodeRef = useLastNode(isLoading, hasMore, setPageNumber)
   return (
     <>
       {error && <p> Ошибка получения данных</p>}

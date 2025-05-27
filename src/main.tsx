@@ -5,7 +5,7 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/R-M-with-Vite-and-TS/">
     <React.StrictMode>
       <App />
     </React.StrictMode>

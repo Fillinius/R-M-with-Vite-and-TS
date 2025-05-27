@@ -20,9 +20,7 @@ const useSearchData = (pageNumber: number, endPoint: string) => {
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
-        setData((p) => {
-          return [...new Set([...p, ...res.data.results])]
-        })
+        setData(res.data?.results)
         setHasMore(res.data.results.length > 0)
         setIsLoading(false)
       })
@@ -30,7 +28,8 @@ const useSearchData = (pageNumber: number, endPoint: string) => {
         if (axios.isCancel(e)) {
           return
         }
-        setError(false)
+        setError(true)
+        setIsLoading(false)
         console.log('errAxios', e)
       })
     return () => cancel()
