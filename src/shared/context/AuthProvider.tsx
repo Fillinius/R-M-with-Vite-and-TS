@@ -1,25 +1,23 @@
 import { createContext, useContext, useState } from 'react'
 import { KEYUSER } from '../../feature/registration/SignIn'
+import { TUser } from '../type/type'
 
-const AuthContext = createContext(null)
+interface IAuthContext {
+  user: TUser | null
+  signIn: (data: TUser, callback: () => void) => void
+  signOut: (callback: () => void) => void
+}
 
-// eslint-disable-next-line react-refresh/only-export-components
+const AuthContext = createContext<IAuthContext | null>(null)
+
 export function useAuth() {
   return useContext(AuthContext)
 }
 
-interface ValueProp {
-  user: string | null
-  signIn: (data: string, callback: () => void) => void
-  signOut: (callback: () => void) => void
-}
-
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<string | null>(
-    () => localStorage.getItem(KEYUSER) || null
-  )
+  const [user, setUser] = useState(() => localStorage.getItem(KEYUSER) || null)
 
-  const signIn = (newUser: string | null | any, callback: () => void) => {
+  const signIn = (newUser: TUser, callback: () => void) => {
     setUser(newUser)
     localStorage.setItem(KEYUSER, newUser)
     callback()
@@ -31,7 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     callback()
   }
 
-  const value: ValueProp | any = {
+  const value = {
     user,
     signIn,
     signOut,

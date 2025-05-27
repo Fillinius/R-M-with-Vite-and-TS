@@ -14,9 +14,11 @@ export const Registration = () => {
   const [data, setData] = React.useState(INITIALSTATEREG)
 
   const navigate = useNavigate()
-  const auth: any = useAuth()
+  const auth = useAuth()
   const location = useLocation()
   const from = location.state?.from || '/'
+
+  if (!auth) return
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setData((prev) => ({

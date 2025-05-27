@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../shared/context/AuthProvider'
 
 export const SignOut = () => {
-  const auth: any | { singOut: () => void } = useAuth()
-
+  const auth = useAuth()
   const navigate = useNavigate()
+
   useEffect(() => {
     if (auth === null) return
+    auth.signOut(() => {})
     navigate('/signIn/registration')
   }, [auth, navigate])
-  return auth.signOut(() => {})
+
+  return null
 }

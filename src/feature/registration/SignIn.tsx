@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { TextField } from '../../shared/form/TextField.tsx'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../shared/context/AuthProvider.js'
+import { useAuth } from '../../shared/context/AuthProvider.tsx'
 import '../../index.css'
 import { Button } from '@mui/material'
 
@@ -18,15 +18,11 @@ export const KEYUSER = 'user'
 export const SignIn = () => {
   const [data, setData] = React.useState(INITIALSTATELOGIN)
   const navigate = useNavigate()
-  const auth:
-    | {
-        user: string | null
-        signIn: (data: string, callback: () => void) => void
-        signOut: (callback: () => void) => void
-      }
-    | any = useAuth()
+  const auth = useAuth()
   const location = useLocation()
   const from = location.state?.from || '/'
+
+  if (auth === null) return <p>Err auth</p>
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setData((prev) => ({
@@ -37,7 +33,7 @@ export const SignIn = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    if (auth !== null)
+    if (auth.user !== null)
       auth.signIn(JSON.stringify(data), () => {
         navigate(from, { replace: true })
       })

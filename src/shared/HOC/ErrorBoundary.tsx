@@ -19,7 +19,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps> {
     return error
   }
 
-  componentDidCatch(error: { message: any }, Errorinfo: ErrorInfo): void {
+  componentDidCatch(error: Error, Errorinfo: ErrorInfo): void {
     console.log('errCatch', error.message)
     console.log('ErrInfoCatch', Errorinfo)
   }
