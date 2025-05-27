@@ -10,6 +10,7 @@ const Episodies = () => {
 
   const [pageNumber, setPageNumber] = useState(1)
   const { data, isLoading, error, hasMore } = useSearchData(
+    '',
     pageNumber,
     endPoint
   )
@@ -20,8 +21,6 @@ const Episodies = () => {
       {error && <p> Ошибка получения данных</p>}
       {isLoading && <h1>Загрузка данных</h1>}
       {data &&
-        !isLoading &&
-        !error &&
         (data.length === 0 ? (
           'Список пуст'
         ) : (

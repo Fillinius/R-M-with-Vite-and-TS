@@ -3,11 +3,15 @@ import axios, { Canceler } from 'axios'
 import { BASEURL } from '../../../path/internalPaths.ts'
 import { DataFetchProp } from '../type/dataFetchProp.ts'
 
-const useSearchData = (pageNumber: number, endPoint: string) => {
+const useSearchData = (query: string, pageNumber: number, endPoint: string) => {
   const [data, setData] = useState<DataFetchProp[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(false)
   const [hasMore, setHasMore] = useState(false)
+
+  useEffect(() => {
+    setData([])
+  }, [query])
 
   useEffect(() => {
     setIsLoading(true)
@@ -16,11 +20,13 @@ const useSearchData = (pageNumber: number, endPoint: string) => {
     axios({
       method: 'GET',
       url: BASEURL.base + endPoint,
-      params: { page: pageNumber },
+      params: { q: query, page: pageNumber },
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
-        setData(res.data?.results)
+        setData((prevState) => {
+          return [...prevState, ...res.data.results]
+        })
         setHasMore(res.data.results.length > 0)
         setIsLoading(false)
       })
@@ -33,7 +39,7 @@ const useSearchData = (pageNumber: number, endPoint: string) => {
         console.log('errAxios', e)
       })
     return () => cancel()
-  }, [pageNumber, endPoint])
+  }, [query, pageNumber, endPoint])
 
   const getDataId = (id: string) => {
     const itemId = data.find((item) => {
