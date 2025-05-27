@@ -28,7 +28,7 @@ const Registration = () => {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
 
-    auth.signIn(JSON.stringify(data), () => {
+    auth?.signIn(JSON.stringify(data), () => {
       navigate(from, { replace: true })
     })
   }
