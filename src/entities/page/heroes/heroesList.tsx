@@ -7,7 +7,7 @@ const HeroesList = ({
   lastNodeRef,
 }: {
   data: DataFetchProp[]
-  lastNodeRef: React.RefAttributes<HTMLLIElement> | undefined
+  lastNodeRef: (node: HTMLElement | null) => void
 }) => {
   const { pathname } = useLocation()
   return (
@@ -46,7 +46,3 @@ const HeroesList = ({
 }
 
 export default HeroesList
-
-{
-  /* <Link to={pathname + '/' + item.id}  */
-}

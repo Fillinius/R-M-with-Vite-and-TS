@@ -6,7 +6,7 @@ type TextFieldProps = {
   type: string
   label: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  id: string
+  id?: string
 }
 
 const TextField: React.FC<TextFieldProps> = ({
@@ -15,7 +15,6 @@ const TextField: React.FC<TextFieldProps> = ({
   type,
   label,
   onChange,
-  id,
 }) => {
   return (
     <>

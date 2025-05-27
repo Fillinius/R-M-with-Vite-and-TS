@@ -9,7 +9,12 @@ const SignOut = () => {
   useEffect(() => {
     navigate('/signIn/registration')
   }, [auth, navigate])
-  return auth.signOut(() => {})
+  return (
+    <>
+      {auth?.signOut(() => {})}
+      Выход из системы
+    </>
+  )
 }
 
 export default SignOut

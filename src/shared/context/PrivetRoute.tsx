@@ -4,7 +4,7 @@ import { useAuth } from './AuthProvider'
 const PrivetRoute = ({ children }: { children: React.ReactNode }) => {
   const auth = useAuth()
   const location = useLocation()
-  if (auth.user === null) {
+  if (auth?.user === null) {
     return (
       <Navigate
         to="/signIn/registration"

@@ -5,13 +5,16 @@ import { useAuth } from '../../shared/context/AuthProvider.js'
 import '../../index.css'
 import { Button } from '@mui/material'
 
-interface userLocalStorageProp {
+interface UserLocalStorageProp {
   [key: string]: string | null
 }
-const INITIALSTATELOGIN = {
+interface LoginState {
+  name: string
+  password: string
+}
+const INITIALSTATELOGIN: LoginState = {
   name: '',
   password: '',
-  id: '',
 }
 export const KEYUSER = 'user'
 
@@ -20,7 +23,7 @@ const SignIn = () => {
   const navigate = useNavigate()
   const auth = useAuth()
   const location = useLocation()
-  const from = location.state?.from || '/'
+  const from = location.state?.from?.pathname || '/'
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setData((prev) => ({
@@ -31,12 +34,20 @@ const SignIn = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
+    if (!auth) {
+      console.error('Auth context is not available')
+      return
+    }
 
+    if (!data.name || !data.password) {
+      alert('Пожалуйста, заполните все поля')
+      return
+    }
     auth.signIn(JSON.stringify(data), () => {
       navigate(from, { replace: true })
     })
 
-    const userLocalStorage: userLocalStorageProp | null = JSON.parse(
+    const userLocalStorage: UserLocalStorageProp | null = JSON.parse(
       localStorage.getItem(KEYUSER) || 'null'
     )
 
@@ -60,7 +71,7 @@ const SignIn = () => {
       <div className="register_box">
         <div>
           <h3>SignIn</h3>
-          {auth.user === null ? (
+          {auth?.user === null ? (
             <div>
               <p>
                 Пользователь не выполнил вход в систему или не
@@ -73,8 +84,9 @@ const SignIn = () => {
             </div>
           ) : (
             <p>
-              Пользователь "{JSON.parse(auth.user).name}" зарегистрирован в
-              системе
+              Пользователь "
+              {auth?.user ? JSON.parse(auth.user).name : 'неизвестен'}"
+              зарегистрирован в системе
             </p>
           )}
         </div>

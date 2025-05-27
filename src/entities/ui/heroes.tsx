@@ -1,4 +1,3 @@
-import * as React from 'react'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import { useCallback, useRef, useState } from 'react'
@@ -26,8 +25,7 @@ const Heroes = () => {
 
   const observer = useRef<IntersectionObserver | null>(null)
   const lastNodeRef = useCallback(
-    (node: Element) => {
-      // console.log(node);
+    (node: HTMLElement | null) => {
       if (isLoading) return
       if (observer.current) {
         observer.current.disconnect()

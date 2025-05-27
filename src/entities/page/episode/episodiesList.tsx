@@ -6,7 +6,7 @@ const EpisodiesList = ({
   lastNodeRef,
 }: {
   data: DataFetchProp[]
-  lastNodeRef: React.RefObject<HTMLElement>
+  lastNodeRef: (node: HTMLElement | null) => void
 }) => {
   const { pathname } = useLocation()
   return (

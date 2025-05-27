@@ -15,7 +15,7 @@ const Locations = () => {
 
   const observer = useRef<IntersectionObserver | null>(null)
   const lastNodeRef = useCallback(
-    (node: Element) => {
+    (node: HTMLElement | null) => {
       // console.log(node);
       if (isLoading) return
       if (observer.current) {
