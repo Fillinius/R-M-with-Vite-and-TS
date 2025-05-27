@@ -1,5 +1,6 @@
 {
   "name": "vite-rick-morty",
+  "homepage": "https://Fillinius.github.io/R-M-with-Vite-and-TS",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,9 +8,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0"
